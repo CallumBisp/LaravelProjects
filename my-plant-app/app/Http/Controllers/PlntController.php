@@ -13,7 +13,7 @@ class PlntController extends Controller
     public function index()
     {
         $plants = Plnt::all();
-        return view('plnts.index', compact('plnts'))
+        return view('plnts.index', compact('plnts'));
     }
 
     /**
