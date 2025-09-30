@@ -12,7 +12,8 @@ class AreaController extends Controller
      */
     public function index()
     {
-        //
+        $areas = Area::all(); //Fetch all areas
+        return view('areas.index', compact('areas'));
     }
 
     /**
@@ -36,7 +37,7 @@ class AreaController extends Controller
      */
     public function show(Area $area)
     {
-        //
+        return view('areas.show', compact('area'));
     }
 
     /**
