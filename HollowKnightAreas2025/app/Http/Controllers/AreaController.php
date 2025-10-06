@@ -21,7 +21,7 @@ class AreaController extends Controller
      */
     public function create()
     {
-        //
+        return view('areas.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class AreaController extends Controller
      */
     public function show(Area $area)
     {
-        return view('areas.show', compact('area'));
+        return view('areas.show')->with('area', $area);
     }
 
     /**
