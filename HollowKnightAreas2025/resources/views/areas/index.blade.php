@@ -4,6 +4,11 @@
             {{__('All Areas') }}
         </h2>
     </x-slot>
+
+    <!-- adding a success message so the user knows when their form is submitted -->
+    <x-alert-success>
+        {{ session('success') }}
+    </x-alert-success>
     <div class="py-12">
         <div class="max-w-7x1 mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -12,6 +17,7 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach($areas as $area)
                         <a href="{{route('areas.show', $area) }}">
+                            <!-- making a card to show the information -->
                             <x-area-card
                                 :name="$area->name"
                                 :description="$area->description"
@@ -19,7 +25,10 @@
                                 :connections="$area->connections"
                                 :image="$area->image"
                             />
+                            
                         </a>
+                        
+                        
                         @endforeach
                     </div>
                 </div>

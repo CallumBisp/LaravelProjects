@@ -5,5 +5,4 @@
     <h4 class="font-bold text-lg">{{$rooms}}</h4>
     <h4 class="font-bold text-lg">{{$connections}}</h4> -->
     <img src="{{asset( 'images/areas/' .$image)}}" alt = "{{$name}}">
-    
 </div>

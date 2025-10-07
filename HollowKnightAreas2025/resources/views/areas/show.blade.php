@@ -18,6 +18,25 @@
                                 :rooms="$area->rooms"
                                 :connections="$area->connections"
                             />
+                            <!-- buttons to delete and edit -->
+                            <div class="mt-4 flex justify-center space-x-2">
+                                <div class="buttons flex flex-row gap-8">
+                                    <!-- Edit Button routes to areas.edit -->
+                                    <a href="{{ route('areas.edit', $area) }}" class = "text-gray-600 bg-orange-300 hover:bg-orange-700 font-bold py-2 px-4 rounded inline-flex items-center justify-center h-auto">
+                                        Edit
+                                    </a>
+
+                                    <!--Delete Button-->
+                                    <form action="{{ route('areas.destroy', $area) }}" method="POST"
+                                    onsubmit="return confirm('Are you sure you want to delete this area?');" class=" m-0">
+                                        @csrf 
+                                        @method('DELETE')
+                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-gray-600 font-bold py-2 px-4 rounded">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
