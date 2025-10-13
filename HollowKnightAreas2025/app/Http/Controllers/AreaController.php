@@ -86,8 +86,26 @@ class AreaController extends Controller
         $request->validate([
             'name' => 'required',
             'description' => 'required|max:1000',
-            'image'
-        ])
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'connections' => 'required',
+            'rooms' => 'required'
+        ]);
+
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images/areas'), $imageName);
+        }
+
+        $area->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image' => $imageName, //store the image
+            'rooms' => $request->rooms,
+            'connections' => $request->connections,
+            'updated_at' => now()
+        ]);
+
+        return to_route('areas.show', $area)->with('success', 'Area created successfully!');
     }
 
     /**
@@ -95,6 +113,7 @@ class AreaController extends Controller
      */
     public function destroy(Area $area)
     {
-        //
+        $area->delete();
+        return to_route('areas.index');
     }
 }

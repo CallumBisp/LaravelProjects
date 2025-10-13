@@ -14,7 +14,7 @@
                     <x-area-form 
                         :action="route('areas.update', $area)"
                         :method="'PUT'"
-                        :book="$area"
+                        :area="$area"
                     />
                 </div>
             </div>
