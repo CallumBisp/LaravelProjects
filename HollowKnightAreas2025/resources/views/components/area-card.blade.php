@@ -4,7 +4,5 @@
     <!-- <h4 class="font-bold text-lg">{{$description}}</h4>
     <h4 class="font-bold text-lg">{{$rooms}}</h4>
     <h4 class="font-bold text-lg">{{$connections}}</h4> -->
-    <div class="aspect-w-16 aspect-h-9">
-        <img class = "object-fill" src="{{asset( 'images/areas/' .$image)}}" alt = "{{$name}}">
-    </div>
+    <img class = "h-[400px] w-[700px] mx-auto aspect-w-16 aspect-h-9" src="{{asset( 'images/areas/' .$image)}}" alt = "{{$name}}">
 </div>
