@@ -19,5 +19,4 @@
     </h2>
 
     <h2 class="text-black-500 text-md" style="font-size: 1rem;">{{$description}}</h2>
-    
 </div>
