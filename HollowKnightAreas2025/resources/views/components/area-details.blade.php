@@ -1,11 +1,13 @@
 @props(['name', 'description', 'connections', 'rooms', 'image'])
 
 <div class="border rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition duration-300 max-w-xl mx-auto">
+
     <!-- Area Title -->
     <h1 class="font-bold text-black-600mb-2" style="font-size: 3rem;">{{$name}}</h1>
 
     <!-- Area Cover Image -->
     <div class="overflow-hidden rounded-lg mb-4 flex justify-center">
+        
         <!--Image is restricted to a smaller size -->
         <img src="{{ asset('images/areas/' . $image) }}" alt="{{ $name }}" class="w-full max-w-xl h-auto object-cover">
     </div>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class AreaController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the areas.
      */
     public function index()
     {
@@ -18,7 +18,7 @@ class AreaController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new area.
      */
     public function create()
     {
@@ -26,7 +26,7 @@ class AreaController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created area in storage.
      */
 
     /*A request is given to the store function*/
@@ -63,7 +63,7 @@ class AreaController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified area.
      */
     public function show(Area $area)
     {
@@ -71,7 +71,7 @@ class AreaController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified area.
      */
     public function edit(Area $area)
     {
@@ -79,7 +79,7 @@ class AreaController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified area in storage.
      */
     public function update(Request $request, Area $area)
     {
@@ -91,11 +91,13 @@ class AreaController extends Controller
             'rooms' => 'required'
         ]);
 
+        // checking if the submission has an image 
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();
             $request->image->move(public_path('images/areas'), $imageName);
         }
 
+        // updating the area with the new values taken from the "update" request
         $area->update([
             'name' => $request->name,
             'description' => $request->description,
@@ -109,7 +111,7 @@ class AreaController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified area from storage.
      */
     public function destroy(Area $area)
     {
