@@ -1,4 +1,5 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+    
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -105,4 +106,37 @@
             </div>
         </div>
     </div>
+
+    <audio id="bg-music" autoplay loop style="display: none;">
+        <source src="/songs/hollow-knight-title.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const audio = document.getElementById('bg-music');
+        const STORAGE_KEY = 'bg-music-time';
+
+        // Wait until audio metadata is loaded (duration, etc.)
+        audio.addEventListener('loadedmetadata', () => {
+            const savedTime = localStorage.getItem(STORAGE_KEY);
+            if (savedTime) {
+            audio.currentTime = parseFloat(savedTime);
+            }
+
+            // Try to play (in case autoplay was blocked)
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log('Autoplay failed:', error);
+            });
+            }
+        });
+
+        // Save current time every second
+        setInterval(() => {
+            if (!audio.paused && !isNaN(audio.currentTime)) {
+            localStorage.setItem(STORAGE_KEY, audio.currentTime);
+            }
+        }, 1000);
+    </script>
 </nav>
