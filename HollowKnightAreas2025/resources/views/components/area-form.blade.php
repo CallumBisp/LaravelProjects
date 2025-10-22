@@ -1,7 +1,7 @@
 @props(['action', 'method', 'area'])
 
 <!-- making the form --> 
- <form action="{{$action}}" method="POST" enctype="multipart/form-data">
+ <form action="{{$action}}" class="p-5 text-black" method="POST" enctype="multipart/form-data">
     @csrf 
     <!-- changing the method if the suggest method is different -->
     @if($method ==='PUT' || $method === 'PATCH')

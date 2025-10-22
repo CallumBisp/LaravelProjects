@@ -1,5 +1,5 @@
 @props(['name', 'description', 'rooms', 'connections', 'image'])
-<div class="container border rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition duration-300 overflow-hidden">
+<div class="container rounded-lg shadow-md p-6 bg-[#3B9797] hover:shadow-lg transition duration-300 overflow-hidden">
     <h4 class="font-bold text-lg">{{$name}}</h4>
     <!-- <h4 class="font-bold text-lg">{{$description}}</h4>
     <h4 class="font-bold text-lg">{{$rooms}}</h4>

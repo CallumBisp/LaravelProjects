@@ -1,5 +1,5 @@
 
-<div>
+<div class=">
     <x-app-layout>
         <x-slot name="header">
             <h2 class = "font-semibold text-x1 text-gray-800 leading-tight">
@@ -7,14 +7,14 @@
             </h2>
         </x-slot>
 
-        <div class="py-12">
+        <div class="py-12 bg-[#132440]">
             <div class="max-w-7x1 mx-auto sm:px-6 lg:px-8">
 
                 <!-- making the background to an area card the selected image but blurred out -->
                 <div class="overflow-hidden shadow-sm sm:rounded-lgx bg-cover"
                     style="background-image: url('{{ asset('images/areas/'.$area->image) }}');">
                     <div class="backdrop-blur-md h-auto">
-                        <h3 class="font-semibold text-lg bg-white mb-4 p-6">Area Details</h3>
+                        <h3 class="font-semibold text-lg bg-[#16476A] mb-4 p-6">Area Details</h3>
                         <div class="px-6 py-40 text-gray-900">
 
                             <!-- builds a details card and passes the information through -->

@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-[#BF092F] border-b border-gray-100">
     
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -107,10 +107,10 @@
         </div>
     </div>
 
-    <audio id="bg-music" autoplay loop style="display: none;">
+    <!-- <audio id="bg-music" autoplay loop style="display: none;">
         <source src="/songs/hollow-knight-title.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
-    </audio>
+    </audio> -->
 
     <script>
         const audio = document.getElementById('bg-music');

@@ -1,6 +1,6 @@
 @props(['name', 'description', 'connections', 'rooms', 'image'])
 
-<div class="border rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition duration-300 max-w-xl mx-auto">
+<div class="rounded-lg shadow-md p-6 bg-[#3B9797] hover:shadow-lg transition duration-300 max-w-xl mx-auto">
 
     <!-- Area Title -->
     <h1 class="font-bold text-black-600mb-2" style="font-size: 3rem;">{{$name}}</h1>
@@ -14,7 +14,7 @@
 
     <!-- Area Connections and Rooms -->
     <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;"> 
-        <div class="grid grid-cols-2 gap-4">            
+        <div class="grid grid-cols-2 text-black gap-4">            
                 <div> Rooms: {{ $rooms }} </div>
                 <div> Connections: {{ $connections }} </div>
         </div>
