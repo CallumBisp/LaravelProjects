@@ -18,3 +18,6 @@ Week 2 - 6th of October
 Week 3 - 13th of October
 
     This week I added the update and edit functions, which work very similarly to the create and store functions. The main difference is that instead of an empty form to add a new element to an existing table, it takes the id of whichever area you wish to edit and fills the form in with the values of that area so you can edit them however you like. I also figured out how to take the image of the area and blur it out to make a pretty cool looking background. A lot of time this week was also spent sizing the images properly so they would all be shown as the same dimensions regardless of how they were put in 
+
+Week 4 - 20th of October 
+    This week I gave the entire project another comb over, adding comments where applicable and doing the read me. I also took my demonstration video and added a bit more to the styling of the website overall.
