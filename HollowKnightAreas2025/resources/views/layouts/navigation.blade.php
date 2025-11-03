@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-[#BF092F] border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-[#ADD8E6] border-b border-gray-100">
     
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,9 +21,11 @@
                         {{__('View All Areas')}}
                     </x-nav-link>
                     <!-- Creating a new area-->
-                    <x-nav-link :href="route('areas.create')" :active="request()->routeIs('areas.create')">
-                        {{__('Create New Area')}}
-                    </x-nav-link>
+                    @if(auth()->user()->role === 'admin')
+                        <x-nav-link :href="route('areas.create')" :active="request()->routeIs('areas.create')">
+                            {{__('Create New Area')}}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 

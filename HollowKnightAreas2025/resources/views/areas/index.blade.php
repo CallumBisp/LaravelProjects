@@ -9,9 +9,9 @@
     <x-alert-success>
         {{ session('success') }}
     </x-alert-success>
-    <div class="py-12 bg-[#132440]">
+    <div class="py-12 bg-[#AFEEEE]">
         <div class="max-w-7x1 mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg bg-[#16476A]">
+            <div class="overflow-hidden shadow-sm sm:rounded-lg bg-[#E0FFFF]">
                 <div class="p-6 text-gray-900">
                     <h3 class="font-semibold text-lg mb-4">List of Areas:</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
