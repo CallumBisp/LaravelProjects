@@ -38,8 +38,8 @@
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
-
-            <x-primary-button class="ms-3">
+<!-- href="{{ route('dashboard') }}" -->
+            <x-primary-button class="ms-3" href="{{ route('dashboard') }}">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>

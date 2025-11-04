@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CharmController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,3 +29,7 @@ Route::put('/areas/{area}', [AreaController::class, 'update'])->name('areas.upda
 Route::delete('/areas/{area}', [AreaController::class, 'destroy'])->name('areas.destroy');
 
 require __DIR__.'/auth.php';
+
+Route::resource('charms', CharmController::class);
+
+Route::post('areas/{area}/charms', [CharmController::class, 'store'])->name('charms.store');

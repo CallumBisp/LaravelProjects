@@ -20,10 +20,16 @@
                     <x-nav-link :href="route('areas.index')" :active="request()->routeIs('areas.index')">
                         {{__('View All Areas')}}
                     </x-nav-link>
+                    <x-nav-link :href="route('charms.index')" :active="request()->routeIs('charms.index')">
+                        {{__('View All Charms')}}
+                    </x-nav-link>
                     <!-- Creating a new area-->
                     @if(auth()->user()->role === 'admin')
                         <x-nav-link :href="route('areas.create')" :active="request()->routeIs('areas.create')">
                             {{__('Create New Area')}}
+                        </x-nav-link>
+                        <x-nav-link :href="route('charms.create')" :active="request()->routeIs('charms.create')">
+                            {{__('Create New Charm')}}
                         </x-nav-link>
                     @endif
                 </div>

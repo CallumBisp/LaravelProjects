@@ -67,6 +67,7 @@ class AreaController extends Controller
      */
     public function show(Area $area)
     {
+        $area->load('charms');
         return view('areas.show')->with('area', $area);
     }
 
