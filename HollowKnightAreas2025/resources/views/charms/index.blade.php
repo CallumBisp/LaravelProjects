@@ -14,7 +14,7 @@
             <div class="overflow-hidden shadow-sm sm:rounded-lg bg-[#E0FFFF]">
                 <div class="p-6 text-gray-900">
                     <h3 class="font-semibold text-lg mb-4">List of Charms:</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         @foreach($charms as $charm)
                         <a href="{{route('charms.show', $charm) }}">
                             <!-- making a card to show the information -->

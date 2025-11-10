@@ -1,5 +1,10 @@
 @props(['action', 'method', 'charm', 'areas'])
 
+
+<?php
+    use app\Models\Area;
+    $areas = Area::all();
+?>
 <!-- making the form --> 
  <form action="{{$action}}" class="p-5 text-black" method="POST" enctype="multipart/form-data">
     @csrf 
@@ -58,13 +63,17 @@
     </div>
 
     <div class="mb-4">
-        <label for="area_id" class="block text-sm text-gray-700">Area</label>
-        <select name="area_id" id="area_id">
+        <label for="area" class="block text-sm text-gray-700">Area</label>
+        <select name="area" id="area">
             
-                @foreach ($areas as $area)
-                    <option value = 1>hello</option>
+                @foreach ($areas as $area) 
+                    <option value = " {{$area->id}} ">{{$area->name}}</option>
                 @endforeach
+            
         </select>
+        @error('area')
+            <p class="text-sm text-red-600">{{ $message }}</p>
+        @enderror
     </div>
 
     <div>

@@ -1,4 +1,9 @@
 
+<?php
+    use App\Models\Charm;
+    $charms = Charm::all();
+?>
+
 <div class=>
     <x-app-layout>
         <x-slot name="header" class="bg-[#B0E0E6]">
@@ -48,6 +53,27 @@
                                         </div>
                                     </div>
                                 @endif
+
+
+                                <div class = "grid grid-cols-3">
+                                    @foreach ($charms as $charm)
+                                        @if($charm->area_id === $area->id)
+                                            <a href="{{route('charms.show', $charm) }}" class="m-3">
+                                                <!-- making a card to show the information -->
+
+                                               
+
+                                                <x-charm-card 
+                                                    :name="$charm->name"
+                                                    :description="$charm->description"
+                                                    :image="$charm->image"
+                                                    :area="$charm->area_id"
+                                                />
+                                            </a>
+                                        @endif
+                                    @endforeach
+                                </div>
+                                
                         </div>
                     </div>                    
                 </div>

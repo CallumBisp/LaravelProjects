@@ -29,12 +29,13 @@ class CharmController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Area $area)
+    public function store(Request $request, Charm $charm)
     {
         $request->validate([
             'name' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'description' => 'required'
+            'description' => 'required',
+            'area' => 'required',
         ]);
 
         if ($request->hasFile('image')) {
@@ -42,14 +43,14 @@ class CharmController extends Controller
             $request->image->move(public_path('images/charms'), $imageName);
         };
 
-        $area->charms()->create([
+        Charm::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'image' => $imageName,
-            'area_id' => $area->id
+            'area_id' => $request->input('area'),
         ]);
 
-        return redirect()->route('areas.show', $area)->with('success', 'Charm added successfully.');
+        return redirect()->route('charms.index')->with('success', 'Charm added successfully.');
     }
 
     /**
@@ -57,7 +58,12 @@ class CharmController extends Controller
      */
     public function show(Charm $charm)
     {
-        //
+        //takes the charm and the area associated with it
+        $charm = Charm::with('area')->findOrFail($charm->id);
+        //  $charm = Charm::with('area')->get(); // eager load area relationship
+        //  dd($charm);
+        return view('charms.show', compact('charm'));
+        // return view('charms.show')->with('charm', $charm);
     }
 
     /**
