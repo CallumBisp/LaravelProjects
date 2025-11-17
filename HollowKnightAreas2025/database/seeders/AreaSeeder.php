@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use App\Models\Area;
+use App\Models\Boss;
 
 class AreaSeeder extends Seeder
 {
@@ -16,7 +17,7 @@ class AreaSeeder extends Seeder
     {
         $currentTimestamp = Carbon::now();
 
-        Area::insert([
+        $areas = ([
             [
                 'name' => 'Dirtmouth',
                 'description' => 'A desolate town with a handful of residents. Includes multiple shop npcs and the entrance to the underground.',
@@ -63,5 +64,14 @@ class AreaSeeder extends Seeder
                 'updated_at' => $currentTimestamp
             ]
         ]);
+
+        foreach ($areas as $areaData)
+        {
+            $area = Area::create(array_merge($areaData, ['created_at' => $currentTimestamp, 'updated_at' => $currentTimestamp]));
+
+            $bosses = Boss::inRandomOrder()->take(2)->pluck('id');
+
+            $area->bosses()->attach($bosses);
+        }
     }
 }

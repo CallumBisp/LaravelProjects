@@ -15,7 +15,7 @@
                 <div class="overflow-hidden shadow-sm sm:rounded-lgx bg-cover"
                     style="background-image: url('{{ asset('images/areas/'.$charm->area->image) }}');">
                     <div class="backdrop-blur-md h-auto">
-                        <h3 class="font-semibold text-lg bg-[#E0FFFF] mb-4 p-6">charm Details</h3>
+                        <h3 class="font-semibold text-lg bg-[#E0FFFF] mb-4 p-6">Charm Details</h3>
                         <div class="px-6 py-40 text-gray-900">
 
                             <!-- builds a details card and passes the information through -->

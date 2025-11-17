@@ -108,7 +108,7 @@ class AreaController extends Controller
             'updated_at' => now()
         ]);
 
-        return to_route('areas.show', $area)->with('success', 'Area created successfully!');
+        return to_route('areas.show', $area)->with('success', 'Area updated successfully!');
     }
 
     /**

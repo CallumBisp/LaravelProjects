@@ -1,6 +1,6 @@
 @props(['name', 'description', 'connections', 'rooms', 'image'])
 
-<div class="rounded-lg shadow-md p-6 bg-[#3B9797] hover:shadow-lg transition duration-300 max-w-xl mx-auto">
+<div class="rounded-lg shadow-md p-6 bg-[#F0FFFF] hover:shadow-lg transition duration-300 max-w-xl mx-auto">
 
     <!-- Area Title -->
     <h1 class="font-bold text-black-600mb-2" style="font-size: 3rem;">{{$name}}</h1>

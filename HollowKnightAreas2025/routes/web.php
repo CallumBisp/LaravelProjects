@@ -3,6 +3,7 @@
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CharmController;
+use App\Http\Controllers\BossController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -33,3 +34,6 @@ require __DIR__.'/auth.php';
 Route::resource('charms', CharmController::class);
 
 Route::post('areas/{area}/charms', [CharmController::class, 'store'])->name('charms.store');
+
+
+Route::resource('bosses', BossController::class)->middleware('auth');

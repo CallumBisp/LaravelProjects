@@ -24,4 +24,9 @@ class Area extends Model
     {
         return $this->hasMany(Charm::class);
     }
+
+    public function bosses()
+    {
+        return $this->belongsToMany(Boss::class);
+    }
 }

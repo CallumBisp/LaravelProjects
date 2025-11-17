@@ -70,16 +70,38 @@ class CharmController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Charm $charm)
-    {
-        //
-    }
+{
+    return view('charms.edit', [
+        'charm' => $charm,
+        'areas' => Area::all(),
+    ]);
+}
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Charm $charm)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'description' => 'required',
+            'area' => 'required',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images/charms'), $imageName);
+        };
+
+        $charm->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'image' => $imageName,
+            'area_id' => $request->input('area'),
+        ]);
+
+        return to_route('charms.show', $charm)->with('Success! Charm updated successfully');
     }
 
     /**
@@ -87,6 +109,7 @@ class CharmController extends Controller
      */
     public function destroy(Charm $charm)
     {
-        //
+        $charm->delete();
+        return to_route('charms.index');
     }
 }

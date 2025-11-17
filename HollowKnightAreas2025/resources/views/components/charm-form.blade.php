@@ -1,4 +1,4 @@
-@props(['action', 'method', 'charm', 'areas'])
+@props(['action', 'method', 'areas', 'charm'])
 
 
 <?php
