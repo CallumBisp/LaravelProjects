@@ -1,5 +1,5 @@
 
-<div class=">
+<div class="">
     <x-app-layout>
         <x-slot name="header">
             <h2 class = "font-semibold text-x1 text-gray-800 leading-tight">
