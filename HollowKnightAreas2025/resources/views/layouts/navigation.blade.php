@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-[#ADD8E6] border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-[#ADD8E6] sticky top-0 z-20">
     
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,6 +23,9 @@
                     <x-nav-link :href="route('charms.index')" :active="request()->routeIs('charms.index')">
                         {{__('View All Charms')}}
                     </x-nav-link>
+                    <x-nav-link :href="route('bosses.index')" :active="request()->routeIs('bosses.index')">
+                        {{__('View All Bosses')}}
+                    </x-nav-link>
                     <!-- Creating a new area-->
                     @if(auth()->user()->role === 'admin')
                         <x-nav-link :href="route('areas.create')" :active="request()->routeIs('areas.create')">
@@ -30,6 +33,9 @@
                         </x-nav-link>
                         <x-nav-link :href="route('charms.create')" :active="request()->routeIs('charms.create')">
                             {{__('Create New Charm')}}
+                        </x-nav-link>
+                        <x-nav-link :href="route('bosses.create')" :active="request()->routeIs('bosses.create')">
+                            {{__('Create New Boss')}}
                         </x-nav-link>
                     @endif
                 </div>

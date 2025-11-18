@@ -1,7 +1,9 @@
 
 <?php
     use App\Models\Charm;
+    use App\Models\Boss;
     $charms = Charm::all();
+    $bosses = Boss::all();
 ?>
 
 <div class=>
