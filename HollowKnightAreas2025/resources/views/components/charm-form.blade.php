@@ -13,37 +13,39 @@
         @method($method)
     @endif
     
-    <!-- inputting a name -->
-    <div class="mb-4">
-        <label for="name" class="block text-sm text-gray-700">Name</label>
-        <input 
-            type="text"
-            name="name"
-            id="name"
-            value="{{old('name',$charm->name ??'') }}"
-            required
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-        />
+    <div class="grid grid-cols-2 gap-8">
+        <!-- inputting a name -->
+        <div class="mb-4">
+            <label for="name" class="block text-sm text-gray-700">Name</label>
+            <input 
+                type="text"
+                name="name"
+                id="name"
+                value="{{old('name',$charm->name ??'') }}"
+                required
+                class="mt-1 block p-4 w-full bg-[#F0FFFF] border-gray-300 rounded-md shadow-sm"
+            />
 
-        <!-- if any of the fields are filled out incorrectly, an error message is displayed -->
-        @error('name')
-            <p class="text-sm text-red-600">{{ $message }}</p>
-        @enderror
-    </div>
+            <!-- if any of the fields are filled out incorrectly, an error message is displayed -->
+            @error('name')
+                <p class="text-sm text-red-600">{{ $message }}</p>
+            @enderror
+        </div>
 
-    <!-- uploading an image -->
-    <div class="mb-4">
-        <label for="image" class="block text-sm font-medium text-gray-700">charm Image</label>
-        <input
-            type="file"
-            name="image"
-            id="image"
-            {{isset($charm) ? '' : 'required' }}
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-        />
-        @error('image')
-            <p class="text-sm text-red-600">{{ $message }}</p>
-        @enderror
+        <!-- uploading an image -->
+        <div class="mb-4">
+            <label for="image" class="block text-sm font-medium text-gray-700">Charm Image</label>
+            <input
+                type="file"
+                name="image"
+                id="image"
+                {{isset($charm) ? '' : 'required' }}
+                class="mt-1 block bg-[#F0FFFF] p-3.5 w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            />
+            @error('image')
+                <p class="text-sm text-red-600">{{ $message }}</p>
+            @enderror
+        </div>
     </div>
 
     <!-- inputting a description -->
@@ -55,7 +57,7 @@
             id="description"
             value="{{old('description',$charm->description ??'') }}"
             required
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            class="mt-1 block w-full bg-[#F0FFFF] p-4 border-gray-300 rounded-md shadow-sm"
         />
         @error('description')
             <p class="text-sm text-red-600">{{ $message }}</p>
@@ -63,11 +65,11 @@
     </div>
 
     <div class="mb-4">
-        <label for="area" class="block text-sm text-gray-700">Area</label>
-        <select name="area" id="area">
+        <label for="area" class="block  text-sm text-gray-700">Area</label>
+        <select name="area" id="area" class="bg-[#F0FFFF]">
             
                 @foreach ($areas as $area) 
-                    <option value = " {{$area->id}} ">{{$area->name}}</option>
+                    <option value = " {{$area->id}} " class="bg-[#F0FFFF]">{{$area->name}}</option>
                 @endforeach
             
         </select>

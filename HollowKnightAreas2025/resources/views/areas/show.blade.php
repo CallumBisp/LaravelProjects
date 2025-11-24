@@ -56,8 +56,14 @@
                                     </div>
                                 @endif
 
-
                                 <div class = "grid grid-cols-5">
+                                    <div class="overflow-hidden shadow-sm rounded-lg mb-4 text-center">
+                                        <h3 class="font-semibold text-lg bg-[#E0FFFF] p-6">Charms</h3>
+                                    </div>
+                                </div>
+
+                                <!-- taking the charms associated with the area from the pivot table and displaying cards based on them -->
+                                <div class = "grid grid-cols-5 mb-12">
                                     @foreach ($charms as $charm)
                                         @if($charm->area_id === $area->id)
                                             <a href="{{route('charms.show', $charm) }}" class="m-3">
@@ -73,6 +79,24 @@
                                                 />
                                             </a>
                                         @endif
+                                    @endforeach
+                                </div>
+
+                                <div class = "grid grid-cols-5">
+                                    <div class="overflow-hidden shadow-sm rounded-lg mb-7 text-center">
+                                        <h3 class="font-semibold text-lg bg-[#E0FFFF] p-6">Bosses</h3>
+                                    </div>
+                                </div>
+
+                                <!-- taking the bosses associated with the area from the pivot table and displaying cards based on them -->
+                                <div class = "grid grid-cols-3 gap-4">
+                                    @foreach($area->bosses as $boss)
+                                        <x-boss-card
+                                            :name="$boss->name"
+                                            :description="$boss->description"
+                                            :image="$boss->image"
+                                            :health="$boss->health"
+                                        />
                                     @endforeach
                                 </div>
                                 

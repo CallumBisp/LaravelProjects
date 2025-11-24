@@ -70,9 +70,6 @@ class BossController extends Controller
     public function show(Boss $boss)
     {
         $boss->load('areas');
-        
-        // $boss = $boss->get('areas');
-        // dd($boss);
         return view('bosses.show', compact('boss'));
     }
 
@@ -96,21 +93,27 @@ class BossController extends Controller
             'description' => 'required|max:1000',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'health' => 'required',
+            'areas' => 'array',
         ]);
 
         if ($request->hasFile('image')) {
             $imageName = time().'.'.$request->image->extension();
-            $request->image->move(public_path('images/areas'), $imageName);
+            $request->image->move(public_path('images/bosses'), $imageName);
         }
 
-        /* once everything is verified, a new area is created and put into the database */
+        /* once everything is verified, the boss is updated and in the database */
         $boss->update([
             'name' => $request->name,
             'description' => $request->description,
             'image' => $imageName, //store the image
             'health' => $request->health,
+            'areas' => $request->areas,
             'updated_at' => now()
         ]);
+
+        if ($request->has('areas')) {
+            $boss->areas()->attach($request->areas);
+        }
 
         return to_route('bosses.show', $boss)->with('success','Boss updated successfully!');
     }

@@ -46,21 +46,29 @@
                                         </div>
                                     </div>
                                 @endif
-   
-                                <?php
-                                    $areas = $boss->get('areas');
-                                ?>
 
-                                @foreach ($areas as $area)
-                                    <a href="{{route('areas.show', $area) }}" class="m-3">
-                                                <!-- making a card to show the information -->
-                                                <x-area-card 
-                                                    :name="$area->name"
-                                                    :description="$area->description"
-                                                    :image="$area->image"
-                                                />
-                                            </a>
-                                @endforeach
+                                <div class = "grid grid-cols-5">
+                                    <div class="overflow-hidden shadow-sm rounded-lg mb-4 text-center">
+                                        <h3 class="font-semibold text-lg bg-[#E0FFFF] p-6">Areas</h3>
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class = "grid grid-cols-3 gap-4">
+                                    @foreach($boss->areas as $area)
+                                        <a href="{{route('areas.show', $area) }}">
+                                            <!-- making a card to show the information -->
+                                            <x-area-card 
+                                                :name="$area->name"
+                                                :description="$area->description"
+                                                :rooms="$area->rooms"
+                                                :connections="$area->connections"
+                                                :image="$area->image"
+                                            />
+                                            
+                                        </a>
+                                    @endforeach
+                                </div>
                         </div>
                     </div>                    
                 </div>

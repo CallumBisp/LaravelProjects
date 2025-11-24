@@ -68,6 +68,7 @@ class AreaController extends Controller
     public function show(Area $area)
     {
         $area->load('charms');
+        $area->load('bosses');
         return view('areas.show')->with('area', $area);
     }
 
@@ -84,6 +85,8 @@ class AreaController extends Controller
      */
     public function update(Request $request, Area $area)
     {
+
+        //taking the information from the form once it is sent in
         $request->validate([
             'name' => 'required',
             'description' => 'required|max:1000',
@@ -116,6 +119,9 @@ class AreaController extends Controller
      */
     public function destroy(Area $area)
     {
+        // removes the relationship between an area and the bosses within before it gets deleted
+        $area->bosses()->detach();
+        $area->charms()->detach();
         $area->delete();
         return to_route('areas.index');
     }

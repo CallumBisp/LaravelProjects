@@ -13,38 +13,42 @@
         @method($method)
     @endif
     
-    <!-- inputting a name -->
-    <div class="mb-4">
-        <label for="name" class="block text-sm text-gray-700">Name</label>
-        <input 
-            type="text"
-            name="name"
-            id="name"
-            value="{{old('name',$boss->name ??'') }}"
-            required
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
-        />
 
-        <!-- if any of the fields are filled out incorrectly, an error message is displayed -->
-        @error('name')
-            <p class="text-sm text-red-600">{{ $message }}</p>
-        @enderror
-    </div>
+    <div class="grid grid-cols-2 gap-8">
+        <!-- inputting a name -->
+        <div class="mb-4">
+            <label for="name" class="block text-sm text-gray-700">Name</label>
+            <input 
+                type="text"
+                name="name"
+                id="name"
+                value="{{old('name',$boss->name ??'') }}"
+                required
+                class="mt-1 block w-full border-gray-300 bg-[#F0FFFF] p-4 rounded-md shadow-sm"
+            />
 
-    <!-- uploading an image -->
-    <div class="mb-4">
-        <label for="image" class="block text-sm font-medium text-gray-700">Boss Image</label>
-        <input
-            type="file"
-            name="image"
-            id="image"
-            {{isset($boss) ? '' : 'required' }}
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-        />
-        @error('image')
-            <p class="text-sm text-red-600">{{ $message }}</p>
-        @enderror
+            <!-- if any of the fields are filled out incorrectly, an error message is displayed -->
+            @error('name')
+                <p class="text-sm text-red-600">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <!-- uploading an image -->
+        <div class="mb-4">
+            <label for="image" class="block text-sm font-medium text-gray-700">Boss Image</label>
+            <input
+                type="file"
+                name="image"
+                id="image"
+                {{isset($boss) ? '' : 'required' }}
+                class="mt-1 block w-full border-gray-300 bg-[#F0FFFF] p-3.5 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            />
+            @error('image')
+                <p class="text-sm text-red-600">{{ $message }}</p>
+            @enderror
+        </div>
     </div>
+    
 
     <!-- inputting a description -->
     <div class="mb-4">
@@ -55,7 +59,7 @@
             id="description"
             value="{{old('description',$boss->description ??'') }}"
             required
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            class="mt-1 block w-full bg-[#F0FFFF] p-4 border-gray-300 rounded-md shadow-sm"
         />
         @error('description')
             <p class="text-sm text-red-600">{{ $message }}</p>
@@ -71,7 +75,7 @@
             id="health"
             value="{{old('health',$boss->health ??'') }}"
             required
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            class="mt-1 block w-full bg-[#F0FFFF] p-4 border-gray-300 rounded-md shadow-sm"
         />
         @error('health')
             <p class="text-sm text-red-600">{{ $message }}</p>
@@ -81,9 +85,16 @@
     <div class="mb-4">
         <fieldset>
             <legend>Areas</legend>
-            @foreach ($areas as $area) 
-                <label><input type="checkbox" id="areas" name="areas[]" value="{{$area->id}}">{{$area->name}}</label><br>
-            @endforeach
+            <div class = "grid grid-cols-5 gap-8">
+                @foreach ($areas as $area) 
+                    <div class="p-4 border-gray-300 bg-[#F0FFFF]">
+                        <label><input type="checkbox" id="areas" name="areas[]" value="{{$area->id}}"> {{$area->name}}</label>
+                        <div class="2xl:h-[250px] 2xl:w-full mx-auto bg-center bg-cover"
+                                style="background-image: url('{{ asset('images/areas/' . $area->image) }}');">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </fieldset>
                   
         @error('area')
