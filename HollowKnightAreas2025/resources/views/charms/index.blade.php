@@ -1,8 +1,16 @@
+<?php
+    use app\Models\Charm;
+    $charms = Charm::all();
+?>
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class = "font-semibold text-x1 text-gray-800 leading-tight">
             {{__('All Charms') }}
         </h2>
+        <a href="{{route('charms.show', Charm::inRandomOrder()->first()) }}">
+            <button>Feeling Lucky?</button>
+        </a>
     </x-slot>
 
     <!-- adding a success message so the user knows when their form is submitted -->

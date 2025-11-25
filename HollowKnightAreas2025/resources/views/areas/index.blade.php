@@ -1,8 +1,18 @@
+ <!-- takes a random area and shows it to you -->
+<?php
+    use app\Models\Area;
+    $areas = Area::all();
+?>
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class = "font-semibold text-x1 text-gray-800 leading-tight">
             {{__('All Areas') }}
         </h2>
+
+        <a href="{{route('areas.show', Area::inRandomOrder()->first()) }}">
+            <button>Feeling Lucky?</button>
+        </a>
     </x-slot>
 
     <!-- adding a success message so the user knows when their form is submitted -->
@@ -27,8 +37,6 @@
                             />
                             
                         </a>
-                        
-                        
                         @endforeach
                     </div>
                 </div>

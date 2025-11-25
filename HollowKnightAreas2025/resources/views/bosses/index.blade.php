@@ -1,8 +1,17 @@
+<?php
+    use app\Models\Boss;
+    $bosses = Boss::all();
+?>
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class = "font-semibold text-x1 text-gray-800 leading-tight">
-            {{__('All bosses') }}
+            {{__('All Bosses') }}
         </h2>
+
+        <a href="{{route('bosses.show', Boss::inRandomOrder()->first()) }}">
+            <button>Feeling Lucky?</button>
+        </a>
     </x-slot>
 
     <!-- adding a success message so the user knows when their form is submitted -->
