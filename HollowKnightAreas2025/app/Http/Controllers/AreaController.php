@@ -67,6 +67,7 @@ class AreaController extends Controller
      */
     public function show(Area $area)
     {
+        // preloads the charms and bosses
         $area->load('charms');
         $area->load('bosses');
         return view('areas.show')->with('area', $area);

@@ -91,12 +91,14 @@
                                 <!-- taking the bosses associated with the area from the pivot table and displaying cards based on them -->
                                 <div class = "grid grid-cols-3 gap-4">
                                     @foreach($area->bosses as $boss)
+                                    <a href="{{route('bosses.show', $boss) }}" class="m-3">
                                         <x-boss-card
                                             :name="$boss->name"
                                             :description="$boss->description"
                                             :image="$boss->image"
                                             :health="$boss->health"
                                         />
+                                    </a>
                                     @endforeach
                                 </div>
                                 

@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/areas', [AreaController::class,'index'])->name('areas.index');
+Route::get('/areas', [AreaController::class,'index'])->name('areas.index');     
 Route::get('/areas/create', [AreaController::class,'create'])->name('areas.create');
 Route::get('/areas/{area}', [AreaController::class,'show'])->name('areas.show');
 Route::post('/areas', [AreaController::class,'store'])->name('areas.store');
